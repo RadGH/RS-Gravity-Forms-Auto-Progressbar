@@ -5,7 +5,7 @@ jQuery(function() {
 		let $form = $wrapper.find('form');
 		let $bar = $form.find('.gf_progressbar');
 
-		if ( $bar.length > 0 ) dtl_init_auto_progress_bar( $form, $bar );
+		if ( $bar.length > 0 ) rs_init_auto_progress_bar( $form, $bar );
 	});
 
 });
@@ -16,8 +16,8 @@ jQuery(function() {
  * @param $form
  * @param $bar
  */
-function dtl_init_auto_progress_bar( $form, $bar ) {
-	let debugmode = false;
+function rs_init_auto_progress_bar( $form, $bar ) {
+	let debugmode = true;
 	let current_progress = -1;
 	let $all_fields = $form.find('.gform_body .gfield');
 
@@ -40,7 +40,7 @@ function dtl_init_auto_progress_bar( $form, $bar ) {
 		let total = 0;
 
 		$all_fields.each(function() {
-			let $val_inputs = jQuery(this).find('input[type="text"], input[type="email"], textarea, select');
+			let $val_inputs = jQuery(this).find(':input, textarea, select').not('input[type="checkbox"], input[type="radio"]');
 			let $check_inputs = jQuery(this).find('input[type="checkbox"], input[type="radio"]');
 
 			// Ignore text boxes for radio/checkbox fields
@@ -60,6 +60,8 @@ function dtl_init_auto_progress_bar( $form, $bar ) {
 				}else{
 					if ( debugmode ) console.log('Empty field: ', this );
 				}
+			}else{
+				if ( debugmode ) console.log('Field has no inputs: ', this );
 			}
 		});
 
