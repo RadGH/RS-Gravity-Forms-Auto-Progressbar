@@ -2,6 +2,8 @@
 
 Change the Gravity Form progress bar to progress as you fill in fields, instead of representing which page you are on.
 
+- [View this plugin on Zingmap.com](https://zingmap.com/plugin/rs-gravity-forms-auto-progressbar/)
+
 ```
 Contributors: radgh
 Requires at least: 6.0
